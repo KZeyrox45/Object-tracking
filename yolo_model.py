@@ -1,6 +1,6 @@
 import torch
 
-def load_model(model_name='yolov5s'):
+def load_model(model_path='yolov5s'):
     """
     Load the YOLOv5 model using torch.hub.
     Args:
@@ -8,7 +8,7 @@ def load_model(model_name='yolov5s'):
     Returns:
         model: Loaded YOLOv5 model.
     """
-    model = torch.hub.load('ultralytics/yolov5', 'custom', model_name, trust_repo=True)
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, trust_repo=True)
     return model
 
 def detect_objects(model, frame):

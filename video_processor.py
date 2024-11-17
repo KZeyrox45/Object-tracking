@@ -68,7 +68,7 @@ def process_video(video_path, model, confidence_threshold=0.3):
     """
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
-        print(f"Error: Unable to open video {video_path}.")
+        print(f"Error: Unable to open video {video_path}. Ensure the path is correct and the file exists.")
         return
 
     # Get video properties

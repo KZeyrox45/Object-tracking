@@ -30,7 +30,7 @@ def process_image(image_path, model, confidence_threshold=0.2):
     # Read the image
     image = cv2.imread(image_path)
     if image is None:
-        print(f"Error: Unable to read image {image_path}.")
+        print(f"Error: Unable to read image {image_path}. Ensure the path is correct and the file exists.")
         return
 
     # Detect objects

@@ -11,7 +11,7 @@ def main():
 
     if mode == "image":
         sub_path = "./data/image/"
-        image_file = input("Enter image file name: ")
+        image_file = input("Enter image file name with extension: ")
         image_path = (sub_path + image_file).strip()
         process_image(image_path, model)
     elif mode == "video":
@@ -21,6 +21,7 @@ def main():
         process_video(video_path, model)
     else:
         print("Invalid mode. Please choose 'image' or 'video'.")
+        print("Example usage: Enter 'image' for processing an image or 'video' for processing a video.")
 
 if __name__ == "__main__":
     main()
