@@ -1,0 +1,40 @@
+# Object Tracking Configuration
+
+# Model settings
+model:
+  path: yolov5s.pt
+  source: ultralytics/yolov5
+
+# Detection settings
+detection:
+  confidence_threshold: 0.3
+  iou_threshold: 0.45
+
+# Image processing settings
+image:
+  input_dir: data/image
+  output_dir: output/image
+  max_width: 800
+  max_height: 600
+  confidence_threshold: 0.2
+
+# Video processing settings
+video:
+  input_dir: data/video
+  output_dir: output/video
+  max_width: 800
+  max_height: 600
+  confidence_threshold: 0.3
+  fps_divisor: 2
+  codec: MP4V
+
+# Display settings
+display:
+  fullscreen: true
+  window_name: Detected Objects
+
+# Logging settings
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: logs/object_tracking.log
