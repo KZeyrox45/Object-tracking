@@ -4,3 +4,5 @@ opencv-python
 numpy
 yolov5
 pyyaml
+streamlit
+pillow
