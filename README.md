@@ -2,8 +2,8 @@
 
 A Computer Vision object tracking project built with **YOLOv5** for real-time object detection in images and videos. Features include CLI argument parsing, YAML configuration, batch processing, comprehensive logging, and unit tests.
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![PyTorch](https://img.shields.io/badge/PyTorch-1.7+-red.svg)
+![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
+![PyTorch](https://img.shields.io/badge/PyTorch-red.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 ## Features
