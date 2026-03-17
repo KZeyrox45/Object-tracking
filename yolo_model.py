@@ -6,20 +6,24 @@ import cv2
 logger = logging.getLogger(__name__)
 
 
-def load_model(model_path: str = "yolov5s", model_source: str = "ultralytics/yolov5"):
+def load_model(model_path: str = "yolov5s", model_source: str = "ultralytics/yolov5", device: str = None):
     """
     Load the YOLOv5 model using torch.hub.
 
     Args:
         model_path: Path to model weights file or model name.
         model_source: Repository source for torch.hub.
+        device: Device to load the model on ('cpu', 'cuda', etc.). If None, uses best available.
 
     Returns:
         model: Loaded YOLOv5 model.
     """
-    logger.info(f"Loading YOLO model from {model_source} with path {model_path}")
+    if device is None:
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    
+    logger.info(f"Loading YOLO model from {model_source} with path {model_path} on {device}")
     try:
-        model = torch.hub.load(model_source, "custom", path=model_path, trust_repo=True)
+        model = torch.hub.load(model_source, "custom", path=model_path, trust_repo=True, device=device)
         logger.info("Model loaded successfully")
         return model
     except Exception as e:

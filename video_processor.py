@@ -66,27 +66,31 @@ def annotate_frame(
 
         label = f"{model.names[int(cls)]}: {conf:.2f}"
 
+        # Calculate dynamic font scale based on frame height
+        font_scale = max(0.5, frame.shape[0] / 1000.0)
+        thickness = max(1, int(font_scale * 2))
+
         # Draw bounding box
-        cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+        cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), thickness)
 
         # Draw label with background
-        label_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)[0]
+        label_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, font_scale, thickness)[0]
         label_x1 = x1
-        label_y1 = y1 - 10 if y1 - 10 > 10 else y1 + 10
+        label_y1 = y1 - 10 if y1 - 10 > label_size[1] else y1 + label_size[1] + 10
         label_x2 = label_x1 + label_size[0] + 5
         label_y2 = label_y1 + label_size[1] + 5
 
         cv2.rectangle(
-            frame, (label_x1, label_y1), (label_x2, label_y2), (0, 255, 0), -1
+            frame, (label_x1, label_y1 - label_size[1] - 5), (label_x2, label_y1 + 5), (0, 255, 0), -1
         )
         cv2.putText(
             frame,
             label,
-            (label_x1 + 2, label_y2 - 4),
+            (label_x1 + 2, label_y1),
             cv2.FONT_HERSHEY_SIMPLEX,
-            0.5,
+            font_scale,
             (0, 0, 0),
-            1,
+            thickness,
         )
 
     return frame
