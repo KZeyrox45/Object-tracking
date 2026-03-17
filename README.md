@@ -9,6 +9,7 @@ A Computer Vision object tracking project built with **YOLOv5** for real-time ob
 ## Features
 
 - **Object Detection** - Detect 80+ object classes using pre-trained YOLOv5
+- **Streamlit UI** - Interactive web interface for easy image and video processing
 - **Image Processing** - Process single images or batch process entire directories
 - **Video Processing** - Process videos frame-by-frame with annotated output
 - **YAML Configuration** - Centralized configuration for all settings
@@ -59,6 +60,12 @@ A Computer Vision object tracking project built with **YOLOv5** for real-time ob
    ```
 
 ## Quick Start
+
+### Run Streamlit Web UI
+
+```bash
+streamlit run app.py
+```
 
 ### Process a Single Image
 
